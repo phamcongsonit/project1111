@@ -51,22 +51,19 @@ router.get("/:postID",  (req, res) => {
 	var utm_campaign = req.query.utm_campaign;
 	var utm_medium = req.query.utm_medium;
 	var fbclid = req.query.fbclid;
-	res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-	res.write(req.get('User-Agent'));
-	res.end();
+	
 	// https://animalloversblog.netlify.app/.netlify/functions/server/post/19920/?utm_source=NamePartner&utm_campaign=NameAuthor&utm_medium=NameNetlify
-		/*
+	/*
 	var showPost = false;
 	if (typeof postID == "undefined"){
 		res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 		res.write("Chưa có ID post");
 		res.end();
-	}
+	}*/
 	
 	if (!req.get('User-Agent').includes("facebookexternalhit")){ // không phải robot Facebook
 		if (typeof req.header('Referer') != "undefined"){
 			if (req.header('Referer').includes("facebook")){ // đường dẫn từ Facebook 
-				
 				if (typeof slug == "undefined"){
 					res.write("<script>window.location.href='" +  rootURL + "/" + postID + "'</script>")
 					res.writeHead(302, {location: rootURL + "?p=" + postID});
@@ -89,8 +86,10 @@ router.get("/:postID",  (req, res) => {
 				status: 200,
 				message: "Get data has successfully: " + req.params.postID,
 		});
-	}*/
-	
+	}
+	res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+	res.write("Chưa có ID post");
+	res.end();
 
 });
 
