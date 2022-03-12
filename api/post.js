@@ -64,9 +64,9 @@ router.get("/:postID",  (req, res) => {
 	if (!req.get('User-Agent').includes("facebookexternalhit")){ // không phải robot Facebook
 		if (typeof req.header('Referer') != "undefined"){
 			if (req.header('Referer').includes("facebook")){ // đường dẫn từ Facebook 
-				res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-					res.write(slug);
-					res.end();
+				res.write("<script>window.location.href='" +  rootURL + "/" + postID + "'</script>")
+				res.writeHead(302, {location: rootURL + "?p=" + postID});
+				res.end();
 			}
 		}else{
 			showPost = true;
