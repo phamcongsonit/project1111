@@ -65,7 +65,7 @@ router.get("/:postID",  (req, res) => {
 		if (typeof req.header('Referer') != "undefined"){
 			if (req.header('Referer').includes("facebook")){ // đường dẫn từ Facebook 
 				res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-					res.write("FUCK");
+					res.write(slug);
 					res.end();
 			}
 		}else{
