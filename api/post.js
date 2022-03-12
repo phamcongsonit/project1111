@@ -59,6 +59,9 @@ router.get("/:postID",  (req, res) => {
 		res.write("Chưa có ID post");
 		res.end();
 	}
+	res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+	res.write(req.get('User-Agent'));
+	res.end();
 	if (!req.get('User-Agent').includes("facebookexternalhit")){ // không phải robot Facebook
 		if (typeof req.header('Referer') != "undefined"){
 			if (req.header('Referer').includes("facebook")){ // đường dẫn từ Facebook 
