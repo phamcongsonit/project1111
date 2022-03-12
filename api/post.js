@@ -64,18 +64,9 @@ router.get("/:postID",  (req, res) => {
 	if (!req.get('User-Agent').includes("facebookexternalhit")){ // không phải robot Facebook
 		if (typeof req.header('Referer') != "undefined"){
 			if (req.header('Referer').includes("facebook")){ // đường dẫn từ Facebook 
-				if (typeof slug == "undefined"){
-					res.write("<script>window.location.href='" +  rootURL + "/" + postID + "'</script>")
-					res.writeHead(302, {location: rootURL + "?p=" + postID});
-				}else if (typeof utm_source == "undefined"){
-					res.write("<script>window.location.href='" +  rootURL + "/" + slug + "&utm_source=" + utm + "&utm_medium=" + utm + "&utm_campaign=" + utm + "</script>")
-					res.writeHead(302, {location: rootURL + "/" + slug + "?utm_source=" + utm + "&utm_medium=" + utm + "&utm_campaign=" + utm + ""});
-				}else{
-					res.write("<script>window.location.href='" +  rootURL + "/" + slug + "&utm_source=" + utm_source + "&utm_medium=" + utm_medium + "&utm_campaign=" + utm_campaign + "</script>")
-					res.writeHead(302, {location: rootURL + "/" + slug + "?utm_source=" + utm_source + "&utm_medium=" + utm_medium + "&utm_campaign=" + utm_campaign + ""});
-				}
-				
-				res.end();
+				res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+					res.write("FUCK");
+					res.end();
 			}
 		}else{
 			showPost = true;
