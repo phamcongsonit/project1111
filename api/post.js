@@ -1,10 +1,6 @@
 'use strict';
 const express = require('express');
-const path = require('path');
 // const fs = require('fs');
-const Stream = require('stream').Transform;
-const serverless = require('serverless-http');
-const app = express();
 const bodyParser = require('body-parser');
 
 
