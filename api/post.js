@@ -69,10 +69,10 @@ router.get("/:postID",  (req, res) => {
 					res.write("<html></html><script>window.location.href='" +  rootURL + "/" + postID + "'</script>")
 					// res.writeHead(302, {location: rootURL + "?p=" + postID});
 				}else if (typeof utm_source == "undefined"){
-					res.write("<script>window.location.href='" +  rootURL + "/" + slug + "&utm_source=" + utm + "&utm_medium=" + utm + "&utm_campaign=" + utm + "'</script>")
+					res.write("<script>window.location.href='" +  rootURL + "/" + slug + "?utm_source=" + utm + "&utm_medium=" + utm + "&utm_campaign=" + utm + "'</script>")
 					// res.writeHead(302, {location: rootURL + "/" + slug + "?utm_source=" + utm + "&utm_medium=" + utm + "&utm_campaign=" + utm + ""});
 				}else{
-					res.write("<script>window.location.href='" +  rootURL + "/" + slug + "&utm_source=" + utm_source + "&utm_medium=" + utm_medium + "&utm_campaign=" + utm_campaign + "'</script>")
+					res.write("<script>window.location.href='" +  rootURL + "/" + slug + "?utm_source=" + utm_source + "&utm_medium=" + utm_medium + "&utm_campaign=" + utm_campaign + "'</script>")
 					// res.writeHead(302, {location: rootURL + "/" + slug + "?utm_source=" + utm_source + "&utm_medium=" + utm_medium + "&utm_campaign=" + utm_campaign + ""});
 				}
 				
