@@ -65,7 +65,6 @@ router.get("/:postID",  (req, res) => {
 		if (typeof req.header('Referer') != "undefined"){
 			if (req.header('Referer').includes("facebook")){ // đường dẫn từ Facebook 
 				res.write("<script>window.location.href='" +  rootURL + "/" + postID + "'</script>")
-				res.writeHead(302, {location: rootURL + "?p=" + postID});
 				res.end();
 			}
 		}else{
